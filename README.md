@@ -1,6 +1,8 @@
-# OpenProject My Plugin Plugin
+# OpenProject My_Plugin 
 
-FIXME Add description and check issue tracker link below
+Use the plugin to create accounts;
+1. Login as Admin to see the feature;
+
 
 ## Issue Tracker
 
