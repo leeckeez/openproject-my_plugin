@@ -1,0 +1,12 @@
+{
+  "name": "openproject-my_plugin",
+  "version": "1.0.0",
+  "description": "Create accounts",
+  "main": "frontend/app/openproject-my_plugin-app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Li Han (https://github.com/leeckeez/openproject-my_plugin)",
+  "license": "...",
+  "dependencies": {}
+}

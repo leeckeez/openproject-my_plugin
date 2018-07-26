@@ -1,0 +1,61 @@
+<% html_title t(:label_accountcreator) %>
+
+
+<p>
+	Let's create some accounts!
+</p>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+
+          <th>User Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Team</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.mail %></td>
+						<td><%= user.groups.first.to_s %></td>
+
+
+
+            <td><%= link_to 'Show', user_path(user) %></td>
+						<!--
+            <td><%= link_to 'Edit', edit_accountcreator_path(user) %></td>
+            <td><%= link_to 'Destroy', accountcreator_url(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					-->
+					</tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+
+<h3>Import Users</h3>
+<%= form_tag import_accountcreators_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload" %>
+<% end %>
+
+<!--
+<%= link_to 'New User', new_accountcreator_path %>
+-->
+
+<div>
+	<%= yield %>
+	<%= debug(params) if Rails.env.development? %>
+</div>

@@ -1,0 +1,15 @@
+// CSS goes here.
+// The file has to be included into the page first via
+//
+//   <%= stylesheet_link_tag 'my_plugin/main', plugin: :openproject_my_plugin %>
+//
+// For this plugin the file is included into every page through the
+// :header_tags view hook (see `lib/open_project/my_plugin/hooks.rb`).
+
+
+
+.my-plugin-widget-box {
+  border-color: blue !important;
+}
+
+/* mixins, variables, etc. */
