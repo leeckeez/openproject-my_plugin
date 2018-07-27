@@ -7,6 +7,10 @@ class AccountcreatorsController < ApplicationController
   #include Concerns::AuthenticationStages
   #include Concerns::UserConsent
 
+	layout 'admin'
+
+	before_action :require_admin  #require admin to access the page
+
 	def index
 		@users = User.all
 
@@ -67,7 +71,7 @@ class AccountcreatorsController < ApplicationController
   end
 
 	def get_group_from_user(user)
-		 
+
 
 	end
 
