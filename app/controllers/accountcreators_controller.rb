@@ -67,13 +67,10 @@ class AccountcreatorsController < ApplicationController
 =end
 	def import
     Accountcreator.import(params[:file])
-    redirect_to accountcreators_path, notice: "Users Added Successfully and Groups Created Successfully"
+    redirect_to users_path, notice: "Users Added Successfully and Groups Created Successfully"
   end
 
-	def get_group_from_user(user)
 
-
-	end
 
 
 

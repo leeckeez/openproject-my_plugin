@@ -23,10 +23,7 @@ class Accountcreator < ActiveRecord::Base
     end
   end
 
-  def self.get_group_from_user(user)
-    
 
-  end
 
 
 
