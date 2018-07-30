@@ -145,9 +145,37 @@ end
 
 ## Assets
 
-The relevant
+The relevant files for the assets are:
 
+* `app/assets/javascripts/my_plugin/main.js` - main entry point for plain JavaScript and document ready hook.
+* `app/assets/stylesheets/my_plugin/main.scss` - main Sass file.
 
+I put the assets into a subfolder with the same name as my plugin in order to avoid naming conflicts with the core.
+
+## Homescreen Blocks
+
+By default the homepage contains a number of blocks (widget boxes), such as: "Projects", "Users", "My account", "Openproject community", "Administration".
+
+In order to show the plugin, I add the own-defined block so that it can appear on the homepage.
+
+The relevant files for homescreen blocks are:
+
+* `lib/open_project/my_plugin/engine.rb` - 'my_plugin.homescreen_blocks' initializer
+* `lib/views/homescreen/blocks/_homescreen_block.html.erb`
+
+Register additional blocks in OpenProject's homescreen in the file 'engine.rb'
+
+```
+initializer 'my_plugin.homescreen_blocks' do
+      OpenProject::Static::Homescreen.manage :blocks do |blocks|
+        blocks.push(
+          { partial: 'homescreen_block', if: Proc.new { true } }
+        )
+      end
+end
+```
+
+The partial file '_homescreen_block.html.erb' provides the page for which the contents of the block will be generated.
 
 
 

@@ -22,10 +22,4 @@ class Accountcreator < ActiveRecord::Base
 
     end
   end
-
-
-
-
-
-
 end
