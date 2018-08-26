@@ -8,10 +8,22 @@ module OpenProject::MyPlugin
 
     include OpenProject::Plugins::ActsAsOpEngine
 
-    register 'openproject-my_plugin',
+    register(
+             'openproject-my_plugin',
              :author_url => 'https://openproject.org',
              :requires_openproject => '>= 6.0.0'
+           )do
 
+           menu :admin_menu,
+                :Accountcreators,
+                { controller: '/accountcreators', action: 'index' },
+                after: :overview,
+
+                caption: "Account creator",
+                icon: 'icon2 icon-bug',
+                html: { id: "accountcreators-menu-item" }
+
+    end
 
   patches [:User, :Group, :GroupsController, :AccountController]
 

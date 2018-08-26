@@ -1,25 +1,5 @@
+<% html_title t(:label_accountcreator) %>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User ID:</strong>
-  <%= @user.id %>
-</p>
-
-<p>
-  <strong>Firstname</strong>
-  <%= @user.firstname %>
-</p>
-
-<p>
-  <strong>Lastname</strong>
-  <%= @user.lastname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.mail %>
-</p>
-
-<%= link_to 'Edit', edit_accountcreator_path(@user) %> |
-<%= link_to 'Back', accountcreators_path %>
+<%= cell Users::UserFilterCell, params, groups: @groups, status: @status %>
+&nbsp;
+<%= cell Users::TableCell, @users, project: @project, current_user: current_user %>

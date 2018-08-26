@@ -11,15 +11,16 @@ class AccountcreatorsController < ApplicationController
 
 	before_action :require_admin  #require admin to access the page
 
+	menu_item :info, only: [:info]
+
 	def index
 		@users = User.all
-
-
+		@user = User.current
 
 	end
-=begin
-	def show
 
+	def show
+		@users = Accountcreator.getUsers
 	end
 
 	def new
@@ -27,9 +28,9 @@ class AccountcreatorsController < ApplicationController
 	end
 
 	def edit
-		@user = User.current
+		@users = Accountcreator.getUsers
 	end
-
+=begin
 
 	def create
 		@user = User.new(user_params)
@@ -66,8 +67,13 @@ class AccountcreatorsController < ApplicationController
   end
 =end
 	def import
-    Accountcreator.import(params[:file])
-    redirect_to users_path, notice: "Users Added Successfully and Groups Created Successfully"
+		begin
+    	Accountcreator.import(params[:file])
+    	redirect_to users_path, notice: "Users Added Successfully and Groups Created Successfully"
+			#redirect_to edit_accountcreator_path
+		rescue
+			redirect_to accountcreators_url, notice: "No file chosen!"
+		end
   end
 
 

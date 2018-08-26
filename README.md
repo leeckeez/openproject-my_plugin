@@ -177,8 +177,27 @@ end
 
 The partial file '_homescreen_block.html.erb' provides the page for which the contents of the block will be generated.
 
+## Menu items
 
+The relevant files for the menu items are:
 
+* `lib/open_project/my_plugin/engine.rb` - register block in the beginning
+* `app/controllers/accountcreators_controller.rb`
+
+Register the new defined menu item in the `engine.rb` file:
+
+```
+		menu :admin_menu,
+              :Accountcreators,
+              { controller: '/accountcreators', action: 'index' },
+              after: :overview,
+              caption: "Account creator",
+              icon: 'icon2 icon-bug',
+              html: { id: "accountcreators-menu-item" }
+end
+```
+
+So you can access the Account creator page from admin menu.
 
 
 
